@@ -1,12 +1,10 @@
----
+
 
 
 ### OpenID-Client: A Recommended Alternative for Secure Authentication and Authorization with Keycloak .
 It offers a robust and standardized implementation of the OpenID Connect protocol, which is essential for secure authentication and authorization processes.
 When working with an identity provider, here's a general overview of how OIDC (OpenID Connect) authentication process typically works
----
 
----
 
 
 ### A simple example illustrating how OIDC (OpenID Connect) works with a provider.
@@ -15,7 +13,7 @@ When working with an identity provider, here's a general overview of how OIDC (O
 
 ![openid_diagram-Enterprise](https://github.com/Azriiii/Redux_project/assets/47857678/d33b2549-7e57-461e-9adb-9af8914be810)
 
----
+
 
 
 
@@ -83,7 +81,9 @@ const client = new keycloakIssuer.Client({
 ```  
 		  
 		  
-		  
+	---
+
+	  
  `client_id:` Unique identifier for the client application used during authentication.
 
  `client_secret:` Confidential value for secure communication between the client and Keycloak.
@@ -94,12 +94,18 @@ const client = new keycloakIssuer.Client({
 
  `token_endpoint_auth_method:` Method for client authentication during token requests.
 
+---
 
+
+
+---
 
 
 Obtain the URL of the authorization endpoint with pre-encoded query parameters to perform a redirect.
 Additionally, generate a code verifier and its corresponding code challenge.
- 
+ ---
+
+
  
  
 ```js
@@ -112,11 +118,15 @@ Additionally, generate a code verifier and its corresponding code challenge.
  ```
  
  
- 
+ ---
+
+
  After users are redirected back to your specified redirect_uri, the application handles the callback. 
  It includes the code_verifier when exchanging the authorization code for tokens. The obtained token set is then stored in the session for future use.
  
- 
+ ---
+
+
  
 ```js
 const params = client.callbackParams(req);
@@ -167,10 +177,14 @@ req.session.tokens = tokenSet;
 
 
 
- 
+ ---
+
+
   the logout function  destroys the session, ensuring that any stored session data is cleared. It retrieves the post-logout redirect URI,
   which specifies where the user will be redirected  to the appropriate location after logging out.
   Please note that some details related to the logout process may be subject to change due to the instability of Keycloak server
+---
+
 
 
 ![Animation33](https://github.com/Azriiii/Redux_project/assets/47857678/47fd0c26-b76d-4992-988f-e47fcf972373)
