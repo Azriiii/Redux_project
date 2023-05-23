@@ -3,13 +3,13 @@
 Keycloak announced the deprecation of its adapters, aiming to gradually phase them out and focus on server compliance with OAuth 2.0 and OpenID Connect, 
 ensuring better support for industry standards. The old Keycloak adapters and implicit calls had both advantages and disadvantages.
 
-Advantages of the old Keycloak adapters and implicit calls:
+### Advantages of the old Keycloak adapters and implicit calls:
 
 Simplicity: They provided an easy-to-use integration for authentication and authorization, simplifying development.
 Quick Implementation: Developers could swiftly implement secure login functionalities, saving time and effort.
 Familiarity: The traditional approach of using adapters was familiar to developers with prior Keycloak experience.
 
-Disadvantages of the old Keycloak adapters and implicit calls:
+### Disadvantages of the old Keycloak adapters and implicit calls:
 
 Security Vulnerabilities: Poor implementation could lead to security breaches like password leakage or unauthorized access to sensitive data.
 Limited Standards Compliance: The old approach might not have fully adhered to industry standards such as OAuth 2.0 and OpenID Connect, potentially causing interoperability issues.
