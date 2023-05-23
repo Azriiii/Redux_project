@@ -72,15 +72,15 @@ const client = new keycloakIssuer.Client({
 		  
 		  
 		  
-client_id: Unique identifier for the client application used during authentication.
+### client_id: Unique identifier for the client application used during authentication.
 
-client_secret: Confidential value for secure communication between the client and Keycloak.
+### client_secret: Confidential value for secure communication between the client and Keycloak.
 
-redirect_uris: URLs for user redirection after authentication or authorization.
+### redirect_uris: URLs for user redirection after authentication or authorization.
 
-post_logout_redirect_uri: URL for user redirection after logging out.
+### post_logout_redirect_uri: URL for user redirection after logging out.
 
-token_endpoint_auth_method: Method for client authentication during token requests.
+### token_endpoint_auth_method: Method for client authentication during token requests.
 
 
 
