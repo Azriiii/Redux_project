@@ -1,6 +1,6 @@
 OpenID-Client: A Recommended Alternative for Secure Authentication and Authorization with Keycloak .
 It offers a robust and standardized implementation of the OpenID Connect protocol, which is essential for secure authentication and authorization processes.
-
+When working with an identity provider, here's a general overview of how OIDC (OpenID Connect) authentication process typically works
 ![openid_diagram-Enterprise](https://github.com/Azriiii/Redux_project/assets/47857678/d33b2549-7e57-461e-9adb-9af8914be810)
 
 ![Diagramme sans nom drawio](https://github.com/Azriiii/Redux_project/assets/47857678/ab675317-3f17-421b-86c8-6e8acd9ae736)
@@ -22,7 +22,7 @@ To connect OpenID-Client seamlessly with Keycloak, you only need to specify the 
 Here is an example code snippet to create a Keycloak client with the provided configurations:
 
 
-
+```
 const { Issuer } = require('openid-client');
 
 Issuer.discover(process.env.KEYCLOAK_SERVER_URL).then((keycloakIssuer) => {
@@ -37,7 +37,7 @@ Issuer.discover(process.env.KEYCLOAK_SERVER_URL).then((keycloakIssuer) => {
   console.log("Client created:", client);
   this.client = client;
 });
-
+```
 
 
 
@@ -46,7 +46,7 @@ These configurations play a crucial role in setting up the client application's 
 
 
 
-
+```
 const client = new keycloakIssuer.Client({
             client_id: process.env.CLIENT_ID,
             client_secret: process.env.KEYCLOAK_SECRET,
@@ -55,7 +55,7 @@ const client = new keycloakIssuer.Client({
             token_endpoint_auth_method: process.env.KEYCLOAK_TOKEN_ENDPOINT,
             response_types: [process.env.KEYCLOAK_RESPONSE_TYPE],
           });
-		  
+		```  
 		  
 		  
 		  
@@ -71,14 +71,14 @@ Additionally, generate a code verifier and its corresponding code challenge.
  
  
  
- 
+ ```
  const authorizationUrl = client.authorizationUrl({
   redirect_uri: process.env.CALLBACK_URL,
   scope: 'openid',
   code_challenge_method: 'S256',
   code_challenge: generatedCodeChallenge,
 });
- 
+ ```
  
  
  
@@ -86,13 +86,13 @@ Additionally, generate a code verifier and its corresponding code challenge.
  It includes the code_verifier when exchanging the authorization code for tokens. The obtained token set is then stored in the session for future use.
  
  
- 
+ ```
 const params = client.callbackParams(req);
 const tokenSet = await client.callback(process.env.CALLBACK_URL, params, {
   code_verifier: generatedCodeVerifier,
 });
 req.session.tokens = tokenSet;
-
+```
 
 
  
@@ -101,7 +101,7 @@ req.session.tokens = tokenSet;
  If the session and token are valid, it returns the user and token information. If any errors occur during the process, appropriate status responses are sent.
  
  
- 
+ ```
  async checkSession(req, res) {
   try {
     const { tokens } = req.session;
@@ -125,7 +125,7 @@ req.session.tokens = tokenSet;
     res.status(500).send("Error logging in");
   }
 }
-
+```
 
 
   ![Animation](https://github.com/Azriiii/Redux_project/assets/47857678/ef94237d-31db-46ab-a998-64e4d92ba555)
@@ -141,7 +141,7 @@ req.session.tokens = tokenSet;
 
 
 
-
+```
 async logout(req, res) {
   try {
     req.session.destroy();
@@ -156,5 +156,5 @@ async logout(req, res) {
     res.status(500).send("Error redirecting");
   }
 }
-
+```
 By the end, we create a singleton KeycloakClient instance to handle authentication and authorization operations throughout the application.
