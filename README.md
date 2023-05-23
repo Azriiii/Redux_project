@@ -149,7 +149,7 @@ req.session.tokens = tokenSet;
 }
 ```
 
-Demo of the login process
+### Demo of the login process
 
 
   ![Animation](https://github.com/Azriiii/Redux_project/assets/47857678/ef94237d-31db-46ab-a998-64e4d92ba555)
