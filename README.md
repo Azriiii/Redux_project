@@ -3,7 +3,16 @@ It offers a robust and standardized implementation of the OpenID Connect protoco
 When working with an identity provider, here's a general overview of how OIDC (OpenID Connect) authentication process typically works
 ![openid_diagram-Enterprise](https://github.com/Azriiii/Redux_project/assets/47857678/d33b2549-7e57-461e-9adb-9af8914be810)
 
+
+
+
+
+
+
+Here's our perspective of how OIDC authentication process works with our application
+
 ![Diagramme sans nom drawio](https://github.com/Azriiii/Redux_project/assets/47857678/ab675317-3f17-421b-86c8-6e8acd9ae736)
+
 
 The implemented method in OpenID-Client is the Authorization Code Flow. This method allows the secure acquisition of Access Tokens (and optionally Refresh Tokens) for third-party API usage.
 
@@ -55,7 +64,7 @@ const client = new keycloakIssuer.Client({
             token_endpoint_auth_method: process.env.KEYCLOAK_TOKEN_ENDPOINT,
             response_types: [process.env.KEYCLOAK_RESPONSE_TYPE],
           });
-		```  
+```  
 		  
 		  
 		  
