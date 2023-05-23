@@ -1,12 +1,21 @@
+---
+
+
 ### OpenID-Client: A Recommended Alternative for Secure Authentication and Authorization with Keycloak .
 It offers a robust and standardized implementation of the OpenID Connect protocol, which is essential for secure authentication and authorization processes.
 When working with an identity provider, here's a general overview of how OIDC (OpenID Connect) authentication process typically works
+---
+
+---
+
 
 ### A simple example illustrating how OIDC (OpenID Connect) works with a provider.
 
 
 
 ![openid_diagram-Enterprise](https://github.com/Azriiii/Redux_project/assets/47857678/d33b2549-7e57-461e-9adb-9af8914be810)
+
+---
 
 
 
