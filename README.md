@@ -42,7 +42,7 @@ It prevents the exposure of access tokens in the browser and ensures the confide
 `Increased Complexity:` Implementing the Authorization Code Flow requires additional steps and components, such as securely handling the authorization code, token exchange, and managing refresh tokens. This complexity may introduce challenges during development and maintenance.
 
 `User Experience Considerations:` As the Authorization Code Flow requires redirecting the user to the authorization server for authentication, it may result in a less seamless user experience compared to implicit flows.
-
+---
 ### A simple example illustrating how OIDC (OpenID Connect) works with a provider.
 
 
