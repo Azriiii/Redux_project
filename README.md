@@ -148,6 +148,7 @@ req.session.tokens = tokenSet;
   Please note that some details related to the logout process may be subject to change due to the instability of Keycloak server
 
 
+![Animation33](https://github.com/Azriiii/Redux_project/assets/47857678/47fd0c26-b76d-4992-988f-e47fcf972373)
 
 
 ```
@@ -166,4 +167,5 @@ async logout(req, res) {
   }
 }
 ```
+
 By the end, we create a singleton KeycloakClient instance to handle authentication and authorization operations throughout the application.
