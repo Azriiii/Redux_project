@@ -20,6 +20,8 @@ When working with an identity provider, here's a general overview of how OIDC (O
 
 The implemented method in OpenID-Client is the Authorization Code Flow. This method allows the secure acquisition of Access Tokens (and optionally Refresh Tokens) for third-party API usage.
 
+## Quick start
+
 
 Keycloak realms operate independently, providing dedicated spaces for managing users, roles, 
 permissions, and authentication settings. They create isolated environments that allow organizations to separate and manage different security contexts
