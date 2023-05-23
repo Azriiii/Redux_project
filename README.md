@@ -5,6 +5,7 @@ When working with an identity provider, here's a general overview of how OIDC (O
 ### A simple example illustrating how OIDC (OpenID Connect) works with a provider.
 
 
+
 ![openid_diagram-Enterprise](https://github.com/Azriiii/Redux_project/assets/47857678/d33b2549-7e57-461e-9adb-9af8914be810)
 
 
