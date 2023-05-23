@@ -3,7 +3,7 @@
 Keycloak announced the deprecation of its adapters, aiming to gradually phase them out and focus on server compliance with OAuth 2.0 and OpenID Connect, 
 ensuring better support for industry standards. The old Keycloak adapters and implicit calls had both advantages and disadvantages.
 
-### Advantages of the old Keycloak adapters and implicit calls:
+### Advantages of the old implicit calls:
 
 `Simplicity:` They provided an easy-to-use integration for authentication and authorization, simplifying development.
 
@@ -11,7 +11,7 @@ ensuring better support for industry standards. The old Keycloak adapters and im
 
 `Familiarity:` The traditional approach of using adapters was familiar to developers with prior Keycloak experience.
 
-### Disadvantages of the old Keycloak adapters and implicit calls:
+### Disadvantages of the old implicit calls:
 
 `Security Vulnerabilities:` Poor implementation could lead to security breaches like password leakage or unauthorized access to sensitive data.
 
@@ -28,6 +28,20 @@ It offers a robust and standardized implementation of the OpenID Connect protoco
 When working with an identity provider, here's a general overview of how OIDC (OpenID Connect) authentication process typically works
 
 
+### Advantages of the Authorization Code Flow:
+
+`Enhanced Security:` The Authorization Code Flow is considered more secure than implicit flows. 
+It prevents the exposure of access tokens in the browser and ensures the confidential exchange of tokens between the client and the authorization server.
+
+`Refresh Token Support:` The Authorization Code Flow allows the issuance of a refresh token, which can be used to obtain new access tokens without requiring the user's involvement. This enables longer session durations and improved user experience.
+
+`Compliance with Standards:` The Authorization Code Flow aligns with the specifications of OIDC and OAuth 2.0, ensuring interoperability and compatibility with other identity providers and applications.
+
+### Disadvantages of the Authorization Code Flow:
+
+`Increased Complexity:` Implementing the Authorization Code Flow requires additional steps and components, such as securely handling the authorization code, token exchange, and managing refresh tokens. This complexity may introduce challenges during development and maintenance.
+
+`User Experience Considerations:` As the Authorization Code Flow requires redirecting the user to the authorization server for authentication, it may result in a less seamless user experience compared to implicit flows.
 
 ### A simple example illustrating how OIDC (OpenID Connect) works with a provider.
 
