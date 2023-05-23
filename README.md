@@ -31,7 +31,7 @@ To connect OpenID-Client seamlessly with Keycloak, you only need to specify the 
 Here is an example code snippet to create a Keycloak client with the provided configurations:
 
 
-```
+```js
 const { Issuer } = require('openid-client');
 
 Issuer.discover(process.env.KEYCLOAK_SERVER_URL).then((keycloakIssuer) => {
@@ -55,7 +55,7 @@ These configurations play a crucial role in setting up the client application's 
 
 
 
-```
+```js
 const client = new keycloakIssuer.Client({
             client_id: process.env.CLIENT_ID,
             client_secret: process.env.KEYCLOAK_SECRET,
@@ -86,7 +86,7 @@ Additionally, generate a code verifier and its corresponding code challenge.
  
  
  
- ```
+```js
  const authorizationUrl = client.authorizationUrl({
   redirect_uri: process.env.CALLBACK_URL,
   scope: 'openid',
@@ -102,7 +102,7 @@ Additionally, generate a code verifier and its corresponding code challenge.
  
  
  
- ```
+```js
 const params = client.callbackParams(req);
 const tokenSet = await client.callback(process.env.CALLBACK_URL, params, {
   code_verifier: generatedCodeVerifier,
@@ -117,7 +117,7 @@ req.session.tokens = tokenSet;
  If the session and token are valid, it returns the user and token information. If any errors occur during the process, appropriate status responses are sent.
  
  
- ```
+```js
  async checkSession(req, res) {
   try {
     const { tokens } = req.session;
@@ -160,7 +160,7 @@ req.session.tokens = tokenSet;
 
 
 
-```
+```js
 async logout(req, res) {
   try {
     req.session.destroy();
