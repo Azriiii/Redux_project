@@ -79,6 +79,8 @@ post_logout_redirect_uri: URL for user redirection after logging out.
 token_endpoint_auth_method: Method for client authentication during token requests.
 
 
+
+
 Obtain the URL of the authorization endpoint with pre-encoded query parameters to perform a redirect.
 Additionally, generate a code verifier and its corresponding code challenge.
  
@@ -97,6 +99,7 @@ Additionally, generate a code verifier and its corresponding code challenge.
  
  After users are redirected back to your specified redirect_uri, the application handles the callback. 
  It includes the code_verifier when exchanging the authorization code for tokens. The obtained token set is then stored in the session for future use.
+ 
  
  
  ```
@@ -153,6 +156,8 @@ req.session.tokens = tokenSet;
 
 
 ![Animation33](https://github.com/Azriiii/Redux_project/assets/47857678/47fd0c26-b76d-4992-988f-e47fcf972373)
+
+
 
 
 ```
