@@ -21,6 +21,8 @@ permissions, and authentication settings. They create isolated environments that
 To connect OpenID-Client seamlessly with Keycloak, you only need to specify the issuer URL. This configuration allows Node applications to effectively integrate with Keycloak. Additionally, the setup of express sessions is required.
 Here is an example code snippet to create a Keycloak client with the provided configurations:
 
+
+
 const { Issuer } = require('openid-client');
 
 Issuer.discover(process.env.KEYCLOAK_SERVER_URL).then((keycloakIssuer) => {
@@ -37,8 +39,12 @@ Issuer.discover(process.env.KEYCLOAK_SERVER_URL).then((keycloakIssuer) => {
 });
 
 
+
+
 Create a Keycloak client with the provided configurations, including the redirect URIs and other settings required for authentication and authorization.
 These configurations play a crucial role in setting up the client application's communication and interaction with Keycloak:
+
+
 
 
 const client = new keycloakIssuer.Client({
@@ -51,6 +57,8 @@ const client = new keycloakIssuer.Client({
           });
 		  
 		  
+		  
+		  
 client_id: Unique identifier for the client application used during authentication.
 client_secret: Confidential value for secure communication between the client and Keycloak.
 redirect_uris: URLs for user redirection after authentication or authorization.
@@ -59,7 +67,9 @@ token_endpoint_auth_method: Method for client authentication during token reques
 
 
 Obtain the URL of the authorization endpoint with pre-encoded query parameters to perform a redirect.
- Additionally, generate a code verifier and its corresponding code challenge.
+Additionally, generate a code verifier and its corresponding code challenge.
+ 
+ 
  
  
  const authorizationUrl = client.authorizationUrl({
@@ -69,8 +79,13 @@ Obtain the URL of the authorization endpoint with pre-encoded query parameters t
   code_challenge: generatedCodeChallenge,
 });
  
+ 
+ 
+ 
  After users are redirected back to your specified redirect_uri, the application handles the callback. 
  It includes the code_verifier when exchanging the authorization code for tokens. The obtained token set is then stored in the session for future use.
+ 
+ 
  
 const params = client.callbackParams(req);
 const tokenSet = await client.callback(process.env.CALLBACK_URL, params, {
@@ -84,6 +99,8 @@ req.session.tokens = tokenSet;
  To verify the session status and access token validity, you can use the checkSession function. It
  It ensures that the required tokens are present in the session and performs introspection on the access token. 
  If the session and token are valid, it returns the user and token information. If any errors occur during the process, appropriate status responses are sent.
+ 
+ 
  
  async checkSession(req, res) {
   try {
@@ -108,12 +125,21 @@ req.session.tokens = tokenSet;
     res.status(500).send("Error logging in");
   }
 }
+
+
+
   ![Animation](https://github.com/Azriiii/Redux_project/assets/47857678/ef94237d-31db-46ab-a998-64e4d92ba555)
+
+
+
 
  
   the logout function  destroys the session, ensuring that any stored session data is cleared. It retrieves the post-logout redirect URI,
   which specifies where the user will be redirected  to the appropriate location after logging out.
   Please note that some details related to the logout process may be subject to change due to the instability of Keycloak server
+
+
+
 
 
 async logout(req, res) {
