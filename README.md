@@ -98,7 +98,7 @@ const client = new keycloakIssuer.Client({
 
 
 
----
+
 
 
 Obtain the URL of the authorization endpoint with pre-encoded query parameters to perform a redirect.
@@ -119,12 +119,9 @@ Additionally, generate a code verifier and its corresponding code challenge.
  
  
  ---
-
-
  After users are redirected back to your specified redirect_uri, the application handles the callback. 
  It includes the code_verifier when exchanging the authorization code for tokens. The obtained token set is then stored in the session for future use.
- 
- ---
+
 
 
  
@@ -177,13 +174,12 @@ req.session.tokens = tokenSet;
 
 
 
- ---
 
 
   the logout function  destroys the session, ensuring that any stored session data is cleared. It retrieves the post-logout redirect URI,
   which specifies where the user will be redirected  to the appropriate location after logging out.
   Please note that some details related to the logout process may be subject to change due to the instability of Keycloak server
----
+
 
 
 
