@@ -1,5 +1,5 @@
 ### keycloak adapter migration overview
---
+---
 Keycloak announced the deprecation of its adapters, aiming to gradually phase them out and focus on server compliance with OAuth 2.0 and OpenID Connect, 
 ensuring better support for industry standards. The old Keycloak adapters and implicit calls had both advantages and disadvantages.
 
@@ -21,7 +21,8 @@ ensuring better support for industry standards. The old Keycloak adapters and im
 
 `Lack of Latest Features:` The old adapters may have lacked support for the latest security enhancements and features introduced in OAuth 2.0 and OpenID Connect.
 
---
+---
+
 ### OpenID-Client: A Recommended Alternative for Secure Authentication and Authorization with Keycloak .
 It offers a robust and standardized implementation of the OpenID Connect protocol, which is essential for secure authentication and authorization processes.
 When working with an identity provider, here's a general overview of how OIDC (OpenID Connect) authentication process typically works
