@@ -43,8 +43,11 @@ It prevents the exposure of access tokens in the browser and ensures the confide
 
 `User Experience Considerations:` As the Authorization Code Flow requires redirecting the user to the authorization server for authentication, it may result in a less seamless user experience compared to implicit flows.
 
-### A simple example illustrating how OIDC (OpenID Connect) works with a provider.
 ---
+
+
+### A simple example illustrating how OIDC (OpenID Connect) works with a provider.
+
 
 
 ![openid_diagram-Enterprise](https://github.com/Azriiii/Redux_project/assets/47857678/d33b2549-7e57-461e-9adb-9af8914be810)
