@@ -120,7 +120,7 @@ const client = new keycloakIssuer.Client({
 ```  
 		  
 		  
-	---
+	
 
 	  
  `client_id:` Unique identifier for the client application used during authentication.
