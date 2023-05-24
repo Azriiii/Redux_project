@@ -1,4 +1,4 @@
-#### keycloak adapter migration overview
+### keycloak adapter migration overview
 ---
 Keycloak announced the deprecation of its adapters, aiming to gradually phase them out and focus on server compliance with OAuth 2.0 and OpenID Connect, 
 ensuring better support for industry standards. The old Keycloak adapters and implicit calls had both advantages and disadvantages.
