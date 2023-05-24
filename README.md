@@ -62,7 +62,7 @@ It prevents the exposure of access tokens in the browser and ensures the confide
 
 ### Here's our perspective of how OIDC authentication process works with our application
 
-![Diagramme sans nom drawio](https://github.com/Azriiii/Redux_project/assets/47857678/ab675317-3f17-421b-86c8-6e8acd9ae736)
+![diagram](https://github.com/Azriiii/Redux_project/assets/47857678/f963945a-b7f6-4cfd-b4fd-4080586846c0)
 
 
 The implemented method in OpenID-Client is the Authorization Code Flow. This method allows the secure acquisition of Access Tokens (and optionally Refresh Tokens) for third-party API usage.
