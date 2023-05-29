@@ -70,9 +70,9 @@ root.render(
     <App />
   </React.StrictMode>,
 )
+```
 
 
----
 
  Fill Language-specific JSON Files with Keys, Supporting Nested Objects or Flat Structure:
 
@@ -129,7 +129,7 @@ export default function Page404() {
     </Page>
   );
 }
-
+```
 
 
 Quick demo : 
