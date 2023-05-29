@@ -92,7 +92,6 @@ These JSON files include the translations for the different sections, sub-sectio
 
 
 
-react-i18next exposes hooks & components in order to use your translations.
 
 The useTranslation hook is the main one you can use to replace hardcoded text with dynamic references to your translations based on current language.
 
@@ -131,11 +130,11 @@ export default function Page404() {
 
 Quick demo : 
 
-![Animation22](https://github.com/Azriiii/Redux_project/assets/47857678/5dd901d4-4d13-4559-bee6-7a6b99a97217)
+![Animation22](https://github.com/Azriiii/Redux_project/assets/47857678/7b56272d-65f5-49c0-8c4b-7b752904e718)
 
-![cn](https://github.com/Azriiii/Redux_project/assets/47857678/71e9338e-9325-4c5f-a059-ebcfa1f886ee)
+![cn](https://github.com/Azriiii/Redux_project/assets/47857678/ea6457e5-509a-4df4-8d40-6da32b5715dc)
+![de](https://github.com/Azriiii/Redux_project/assets/47857678/a02ba2f0-7318-4bcd-9a5e-3cbc0b0b9754)
 
-![de](https://github.com/Azriiii/Redux_project/assets/47857678/d9a9cb91-1647-4d67-b437-f2f887258e97)
 
 
 ### Please be aware that depending on specific needs and context, some modifications may be required in the translations. Additionally, it is important to note that Mandarin Chinese is the commonly used language for Chinese translations.
