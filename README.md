@@ -69,7 +69,7 @@ root.render(
     <App />
   </React.StrictMode>,
 )
-```
+
 
 
  Fill Language-specific JSON Files with Keys, Supporting Nested Objects or Flat Structure:
@@ -86,7 +86,7 @@ These JSON files include the translations for the different sections, sub-sectio
     }
 	}
 
----
+
 ![folder](https://github.com/Azriiii/Redux_project/assets/47857678/646c0a8f-62b3-4dbe-bef4-1389fb548a57)
 
 ![json](https://github.com/Azriiii/Redux_project/assets/47857678/0fff45d8-f95e-4a61-85bc-c296618bdfed)
@@ -137,5 +137,5 @@ Quick demo :
 ![de](https://github.com/Azriiii/Redux_project/assets/47857678/a02ba2f0-7318-4bcd-9a5e-3cbc0b0b9754)
 
 
----
+
 ### Please be aware that depending on specific needs and context, some modifications may be required in the translations. Additionally, it is important to note that Mandarin Chinese is the commonly used language for Chinese translations.
