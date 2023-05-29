@@ -115,7 +115,7 @@ root.render(
 serviceWorkerRegistration.unregister();
 reportWebVitals();
 
-```js
+```
 
 
 ### Making Translations Ready for Your Code: Fill Language-specific JSON Files with Keys, Supporting Nested Objects or Flat Structure:
