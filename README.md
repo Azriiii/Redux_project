@@ -144,10 +144,10 @@ reportWebVitals();
 ```js
 
 
-Making Translations Ready for Your Code: Fill Language-specific JSON Files with Keys, Supporting Nested Objects or Flat Structure:
+### Making Translations Ready for Your Code: Fill Language-specific JSON Files with Keys, Supporting Nested Objects or Flat Structure:
 
 
-```js
+```
 
 "navigation": {
     "error": {
@@ -155,7 +155,7 @@ Making Translations Ready for Your Code: Fill Language-specific JSON Files with 
       "goHome": "Zur Startseite"
     }
 	}
-```js
+```
 
 
 react-i18next exposes hooks & components in order to use your translations.
@@ -167,17 +167,11 @@ The useTranslation hook is the main one you can use to replace hardcoded text wi
 ```js
 import { m } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
-// @mui
 import { Box, Button, Container, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-// components
 import { MotionContainer, varBounce } from '../components/animate';
 import Page from '../components/Page';
 import useLocales from '../hooks/useLocales';
-
-// assets
-
-// ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -187,7 +181,6 @@ const RootStyle = styled('div')(({ theme }) => ({
   paddingBottom: theme.spacing(10),
 }));
 
-// ----------------------------------------------------------------------
 
 export default function Page404() {
   const { translate } = useLocales();
