@@ -14,16 +14,15 @@ The locales folder contains a JSON file for each language you support.
 ### Configuration:
 .
 └── src
-    ├── App.tsx
-    ├── i18n
-    │   ├── config.ts
-    │   └── locales
-    │       ├── en-Us.json
-    │       └── fr-FR.json
-    │		├── cn-CN.json
-    │		├── de-DE.json
-    └── index.tsx
-
+   ├── App.tsx
+   ├── i18n
+   │   ├── config.ts
+   │   └── locales
+   │      ├── en-Us.json
+   │      ├── fr-FR.json
+   │      ├── cn-CN.json
+   │      └── de-DE.json
+   └── index.tsx
 
 
 
