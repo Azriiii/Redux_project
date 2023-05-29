@@ -98,21 +98,9 @@ The useTranslation hook is the main one you can use to replace hardcoded text wi
 
 
 ```js
-import { m } from 'framer-motion';
-import { Link as RouterLink } from 'react-router-dom';
-import { Box, Button, Container, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { MotionContainer, varBounce } from '../components/animate';
+
 import Page from '../components/Page';
 import useLocales from '../hooks/useLocales';
-
-const RootStyle = styled('div')(({ theme }) => ({
-  display: 'flex',
-  height: '100%',
-  alignItems: 'center',
-  paddingTop: theme.spacing(15),
-  paddingBottom: theme.spacing(10),
-}));
 
 export default function Page404() {
   const { translate } = useLocales(); // use the useLocales hook to access the translation function
