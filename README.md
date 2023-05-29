@@ -3,10 +3,6 @@
 
 Due to a possible large client wordlwide base and the need for multi-language support, we have decided to implement React i18n with a decentralized approach using a JSON file for storing all the translated text. This allows for efficient management and easy updates of translations, ensuring a seamless and accessible experience for users from different regions. With React i18n, managing translations becomes effortless. You can extract translatable text, organize it in a translation file, and seamlessly switch between languages. 
 
-### Getting Started with React i18n: Installation Guide:
-
-`npm install react-i18next i18next --save`
-
 
 
 The locales folder contains a JSON file for each language you support. 
