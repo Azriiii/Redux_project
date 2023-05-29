@@ -87,7 +87,7 @@ These JSON files include the translations for the different sections, sub-sectio
       "goHome": "Zur Startseite"
     }
 	}
-
+```
 
 ![folder](https://github.com/Azriiii/Redux_project/assets/47857678/646c0a8f-62b3-4dbe-bef4-1389fb548a57)
 
