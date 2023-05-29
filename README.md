@@ -147,7 +147,8 @@ reportWebVitals();
 ### Making Translations Ready for Your Code: Fill Language-specific JSON Files with Keys, Supporting Nested Objects or Flat Structure:
 
 
-```
+```JSON
+
 
 "navigation": {
     "error": {
@@ -155,7 +156,7 @@ reportWebVitals();
       "goHome": "Zur Startseite"
     }
 	}
-```
+```JSON
 
 
 react-i18next exposes hooks & components in order to use your translations.
