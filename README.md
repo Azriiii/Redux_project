@@ -1,247 +1,221 @@
-### keycloak adapter migration overview
----
-Keycloak announced the deprecation of its adapters, aiming to gradually phase them out and focus on server compliance with OAuth 2.0 and OpenID Connect, 
-ensuring better support for industry standards. The old Keycloak adapters and implicit calls had both advantages and disadvantages.
-
-### Advantages of the old implicit calls:
-
-`Simplicity:` They provided an easy-to-use integration for authentication and authorization, simplifying development.
-
-`Quick Implementation:` Developers could swiftly implement secure login functionalities, saving time and effort.
-
-`Familiarity:` The traditional approach of using adapters was familiar to developers with prior Keycloak experience.
-
-### Disadvantages of the old implicit calls:
-
-`Security Vulnerabilities:` Poor implementation could lead to security breaches like password leakage or unauthorized access to sensitive data.
-
-`Limited Standards Compliance:` The old approach might not have fully adhered to industry standards such as OAuth 2.0 and OpenID Connect, potentially causing interoperability issues.
-
-`Maintenance Challenges:` Managing separate adapters for various languages and frameworks could be complex, resulting in inconsistencies in functionality and usability.
-
-`Lack of Latest Features:` The old adapters may have lacked support for the latest security enhancements and features introduced in OAuth 2.0 and OpenID Connect.
+### A Guide to i18n in React.js
 
 ---
-
-### OpenID-Client: A Recommended Alternative for Secure Authentication and Authorization with Keycloak .
-It offers a robust and standardized implementation of the OpenID Connect protocol, which is essential for secure authentication and authorization processes.
-When working with an identity provider, here's a general overview of how OIDC (OpenID Connect) authentication process typically works
-
-
-### Advantages of the Authorization Code Flow:
-
-`Enhanced Security:` The Authorization Code Flow is considered more secure than implicit flows. 
-It prevents the exposure of access tokens in the browser and ensures the confidential exchange of tokens between the client and the authorization server.
-
-`Refresh Token Support:` The Authorization Code Flow allows the issuance of a refresh token, which can be used to obtain new access tokens without requiring the user's involvement. This enables longer session durations and improved user experience.
-
-`Compliance with Standards:` The Authorization Code Flow aligns with the specifications of OIDC and OAuth 2.0, ensuring interoperability and compatibility with other identity providers and applications.
-
-### Disadvantages of the Authorization Code Flow:
-
-`Increased Complexity:` Implementing the Authorization Code Flow requires additional steps and components, such as securely handling the authorization code, token exchange, and managing refresh tokens. This complexity may introduce challenges during development and maintenance.
-
-`User Experience Considerations:` As the Authorization Code Flow requires redirecting the user to the authorization server for authentication, it may result in a less seamless user experience compared to implicit flows.
-
+React i18n is a handy tool for translating and localizing React applications. It simplifies the process of making your app accessible to users from different languages and cultures. With React i18n, managing translations becomes effortless. You can extract translatable text, organize it in a translation file, and seamlessly switch between languages. 
 ---
+### Getting Started with React i18n: Installation Guide:
 
-
-### A simple example illustrating how OIDC (OpenID Connect) works with a provider.
-
-
-
-![openid_diagram-Enterprise](https://github.com/Azriiii/Redux_project/assets/47857678/d33b2549-7e57-461e-9adb-9af8914be810)
+`npm install react-i18next i18next --save
 
 
 
+The locales folder contains a JSON file for each language you support. 
 
+### Configuration:
 
-
-
-
-
-### Here's our perspective of how OIDC authentication process works with our application
-
-![diagram](https://github.com/Azriiii/Redux_project/assets/47857678/f963945a-b7f6-4cfd-b4fd-4080586846c0)
-
-
-The implemented method in OpenID-Client is the Authorization Code Flow. This method allows the secure acquisition of Access Tokens (and optionally Refresh Tokens) for third-party API usage.
-
-## Quick start
-
-
-Keycloak realms operate independently, providing dedicated spaces for managing users, roles, 
-permissions, and authentication settings. They create isolated environments that allow organizations to separate and manage different security contexts
- based on their specific requirements. Realms ensure distinct and well-defined user identities,
- authentication flows, and authorization policies within their respective domains.
+└── src
+    ├── App.tsx
+    ├── i18n
+    │   ├── config.ts
+    │   └── locales
+    │       ├── en-Us.json
+    │       └── fr-FR.json
+    │		├── cn-CN.json
+    │		├── de-DE.json
+    └── index.tsx
  
- /realms/{realm-name}/.well-known/openid-configuration
+---
 
- ![Captureq](https://github.com/Azriiii/Redux_project/assets/47857678/67ca9149-37f2-4e08-96b1-e315eb338cd0)
-
- 
-To connect OpenID-Client seamlessly with Keycloak, you only need to specify the issuer URL. This configuration allows Node applications to effectively integrate with Keycloak. Additionally, the setup of express sessions is required.
-Here is an example code snippet to create a Keycloak client with the provided configurations:
 
 
 ```js
-const { Issuer } = require('openid-client');
+import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import { initReactI18next } from 'react-i18next';
+import deLocales from './de.json';
+import enLocales from './en.json';
+import frLocales from './fr.json';
+import cnLocales from './cn.json';
 
-Issuer.discover(process.env.KEYCLOAK_SERVER_URL).then((keycloakIssuer) => {
-  const client = new keycloakIssuer.Client({
-    client_id: process.env.CLIENT_ID,
-    client_secret: process.env.KEYCLOAK_SECRET,
-    redirect_uris: [process.env.CALLBACK_URL],
-    post_logout_redirect_uri: [process.env.POST_LOGOUT_REDIRECT],
-    token_endpoint_auth_method: process.env.KEYCLOAK_TOKEN_ENDPOINT,
-    response_types: [process.env.KEYCLOAK_RESPONSE_TYPE],
+
+
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translations: enLocales },
+      de: { translations: deLocales },
+      fr: { translations: frLocales },
+      cn: { translations: cnLocales }
+
+    },
+    lng: localStorage.getItem('i18nextLng') || 'en',
+    fallbackLng: 'en',
+    debug: false,
+    ns: ['translations'],
+    defaultNS: 'translations',
+    interpolation: {
+      escapeValue: false
+    }
   });
-  console.log("Client created:", client);
-  this.client = client;
-});
+
+export default i18n;
+
 ```
 
 
 
-Create a Keycloak client with the provided configurations, including the redirect URIs and other settings required for authentication and authorization.
-These configurations play a crucial role in setting up the client application's communication and interaction with Keycloak:
 
+To effectively initialize react-i18next, import that config file in your app entry point:
+```js```js
+// highlight
+import './utils/highlight';
+
+// scroll bar
+import 'simplebar/src/simplebar.css';
+
+// lightbox
+import 'react-image-lightbox/style.css';
+
+// map
+
+// slick-carousel
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+
+// lazy image
+import 'react-lazy-load-image-component/src/effects/black-and-white.css';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+
+import { createRoot } from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
+import { Provider as ReduxProvider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+// @mui
+// redux
+import { persistor, store } from './redux/store';
+// contexts
+import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
+import { SettingsProvider } from './contexts/SettingsContext';
+
+import { AuthProvider } from './contexts/JWTContext';
+import './locales/i18n';
+//
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+// ----------------------------------------------------------------------
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
+  <AuthProvider>
+    <HelmetProvider>
+      <ReduxProvider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <SettingsProvider>
+            <CollapseDrawerProvider>
+              {/* to be removed */}
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </CollapseDrawerProvider>
+          </SettingsProvider>
+        </PersistGate>
+      </ReduxProvider>
+    </HelmetProvider>
+  </AuthProvider>
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.unregister();
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+```js
+
+
+Making Translations Ready for Your Code: Fill Language-specific JSON Files with Keys, Supporting Nested Objects or Flat Structure:
 
 
 ```js
-const client = new keycloakIssuer.Client({
-            client_id: process.env.CLIENT_ID,
-            client_secret: process.env.KEYCLOAK_SECRET,
-            redirect_uris: [process.env.CALLBACK_URL],
-            post_logout_redirect_uri: [process.env.POST_LOGOUT_REDIRECT],
-            token_endpoint_auth_method: process.env.KEYCLOAK_TOKEN_ENDPOINT,
-            response_types: [process.env.KEYCLOAK_RESPONSE_TYPE],
-          });
-```  
-		  
-		  
-	
 
-	  
- `client_id:` Unique identifier for the client application used during authentication.
-
- `client_secret:` Confidential value for secure communication between the client and Keycloak.
-
- `redirect_uris:` URLs for user redirection after authentication or authorization.
-
- `post_logout_redirect_uri:` URL for user redirection after logging out.
-
- `token_endpoint_auth_method:` Method for client authentication during token requests.
-
----
-
-
-
-
-
-
-Obtain the URL of the authorization endpoint with pre-encoded query parameters to perform a redirect.
-Additionally, generate a code verifier and its corresponding code challenge.
- ---
-
-
- 
- 
-```js
- const authorizationUrl = client.authorizationUrl({
-  redirect_uri: process.env.CALLBACK_URL,
-  scope: 'openid',
-  code_challenge_method: 'S256',
-  code_challenge: generatedCodeChallenge,
-});
- ```
- 
- 
- ---
- After users are redirected back to your specified redirect_uri, the application handles the callback. 
- It includes the code_verifier when exchanging the authorization code for tokens. The obtained token set is then stored in the session for future use.
-
-
-
- 
-```js
-const params = client.callbackParams(req);
-const tokenSet = await client.callback(process.env.CALLBACK_URL, params, {
-  code_verifier: generatedCodeVerifier,
-});
-req.session.tokens = tokenSet;
-```
-
-
- 
- To verify the session status and access token validity, you can use the checkSession function. It
- It ensures that the required tokens are present in the session and performs introspection on the access token. 
- If the session and token are valid, it returns the user and token information. If any errors occur during the process, appropriate status responses are sent.
- 
- 
-```js
- async checkSession(req, res) {
-  try {
-    const { tokens } = req.session;
-
-    if (!tokens) {
-      console.error("Token is not present in request session");
-      res.status(403).send();
-      return;
+"navigation": {
+    "error": {
+      "pageNotFound": "Seite nicht gefunden!",
+      "goHome": "Zur Startseite"
     }
-
-    const introspection = await client.introspect(tokens.access_token);
-    if (introspection.active === false) {
-      res.status(403).json();
-      return;
-    }
-
-    const user = req.session.user;
-    res.status(200).json({ user, tokens });
-  } catch (error) {
-    console.error("check-session" + error);
-    res.status(500).send("Error logging in");
-  }
-}
-```
-
-### Demo of the login process
+	}
+```js
 
 
-  ![Animation](https://github.com/Azriiii/Redux_project/assets/47857678/ef94237d-31db-46ab-a998-64e4d92ba555)
+react-i18next exposes hooks & components in order to use your translations.
 
-
-
-
-
-
-  the logout function  destroys the session, ensuring that any stored session data is cleared. It retrieves the post-logout redirect URI,
-  which specifies where the user will be redirected  to the appropriate location after logging out.
-  Please note that some details related to the logout process may be subject to change due to the instability of Keycloak server
-
-
-
-
-![Animation33](https://github.com/Azriiii/Redux_project/assets/47857678/47fd0c26-b76d-4992-988f-e47fcf972373)
-
+The useTranslation hook is the main one you can use to replace hardcoded text with dynamic references to your translations based on current language.
 
 
 
 ```js
-async logout(req, res) {
-  try {
-    req.session.destroy();
+import { m } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
+// @mui
+import { Box, Button, Container, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
+// components
+import { MotionContainer, varBounce } from '../components/animate';
+import Page from '../components/Page';
+import useLocales from '../hooks/useLocales';
 
-    const postLogoutRedirectUri = process.env.POST_LOGOUT_REDIRECT;
+// assets
 
-    const endSessionUrl = client.endSessionUrl({
-      post_logout_redirect_uris: postLogoutRedirectUri,
-    });
-    res.redirect(endSessionUrl);
-  } catch (error) {
-    res.status(500).send("Error redirecting");
-  }
+// ----------------------------------------------------------------------
+
+const RootStyle = styled('div')(({ theme }) => ({
+  display: 'flex',
+  height: '100%',
+  alignItems: 'center',
+  paddingTop: theme.spacing(15),
+  paddingBottom: theme.spacing(10),
+}));
+
+// ----------------------------------------------------------------------
+
+export default function Page404() {
+  const { translate } = useLocales();
+
+  return (
+    <Page title={translate('navigation.error.pageNotFound')
+    } sx={{ height: 1 }}>
+      <RootStyle>
+        <Container component={MotionContainer}>
+          <Box sx={{ maxWidth: 480, margin: 'auto', textAlign: 'center' }}>
+            <m.div variants={varBounce().in}>
+              <Typography variant="h3" paragraph>
+                {translate('navigation.error.pageNotFound')
+                }              </Typography>
+            </m.div>
+
+            <Button to="/" size="large" variant="contained" component={RouterLink}>
+              {translate('navigation.error.goHome')
+              }            </Button>
+          </Box>
+        </Container>
+      </RootStyle>
+    </Page>
+  );
 }
-```
-By the end, we create a singleton KeycloakClient instance to handle authentication and authorization operations throughout the application.
-### Please note that the following demonstration may contain customizable details to cater to your specific needs and preferences
+
+```js
+
+
+
+
+### Please be aware that depending on specific needs and context, some modifications may be required in the translations. Additionally, it is important to note that Mandarin Chinese is the commonly used language for Chinese translations.
