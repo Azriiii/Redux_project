@@ -84,6 +84,9 @@ root.render(
     }
 	}
 ```
+![folder](https://github.com/Azriiii/Redux_project/assets/47857678/646c0a8f-62b3-4dbe-bef4-1389fb548a57)
+
+![json](https://github.com/Azriiii/Redux_project/assets/47857678/0fff45d8-f95e-4a61-85bc-c296618bdfed)
 
 
 
