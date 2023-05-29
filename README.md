@@ -143,6 +143,8 @@ export default function Page404() {
 Quick demo : 
 
 ![Animation22](https://github.com/Azriiii/Redux_project/assets/47857678/5dd901d4-4d13-4559-bee6-7a6b99a97217)
+![cn](https://github.com/Azriiii/Redux_project/assets/47857678/71e9338e-9325-4c5f-a059-ebcfa1f886ee)
+![de](https://github.com/Azriiii/Redux_project/assets/47857678/d9a9cb91-1647-4d67-b437-f2f887258e97)
 
 
 ### Please be aware that depending on specific needs and context, some modifications may be required in the translations. Additionally, it is important to note that Mandarin Chinese is the commonly used language for Chinese translations.
