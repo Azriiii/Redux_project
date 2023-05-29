@@ -29,6 +29,7 @@ The locales folder contains a JSON file for each language you support.
 
 
 ```js
+
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
@@ -68,7 +69,7 @@ export default i18n;
 
 
 To effectively initialize react-i18next, import that config file in your app entry point:
-```js```js
+```js
 // highlight
 import './utils/highlight';
 
