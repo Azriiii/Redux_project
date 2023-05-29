@@ -21,7 +21,7 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-// Import JSON files containing translations for different languages
+// import JSON files containing translations for different languages
 import deLocales from './de.json';
 import enLocales from './en.json';
 import frLocales from './fr.json';
@@ -29,27 +29,27 @@ import cnLocales from './cn.json';
 
 // Initialize i18n with configuration options
 i18n
-  .use(LanguageDetector) // Use language detector to automatically detect user's language
-  .use(initReactI18next) // Initialize i18next for React components
+  .use(LanguageDetector) // use language detector to automatically detect user's language
+  .use(initReactI18next) // initialize i18next for React components
   .init({
     resources: {
       // Define language-specific translations using JSON files
-      en: { translations: enLocales }, // English translations
-      de: { translations: deLocales }, // German translations
-      fr: { translations: frLocales }, // French translations
-      cn: { translations: cnLocales }  // Chinese translations
+      en: { translations: enLocales }, 
+      de: { translations: deLocales }, 
+      fr: { translations: frLocales }, 
+      cn: { translations: cnLocales } 
     },
-    lng: localStorage.getItem('i18nextLng') || 'en', // Set initial language based on stored preference or default to English
-    fallbackLng: 'en', // Fallback language if translation is not available
+    lng: localStorage.getItem('i18nextLng') || 'en', // set initial language based on stored preference or default to English
+    fallbackLng: 'en', // fallback language if translation is not available
     debug: false, // Disable debug mode
     ns: ['translations'], // Namespace for translations
     defaultNS: 'translations', // Default namespace for translations
     interpolation: {
-      escapeValue: false // Disable escaping of HTML entities in translated text
+      escapeValue: false // disable escaping of HTML entities in translated text
     }
   });
 
-export default i18n; // Export the initialized i18n object for use in the application
+export default i18n; // export the initialized i18n object for use in the application
 
 
 ```
