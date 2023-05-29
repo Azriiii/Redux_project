@@ -26,7 +26,7 @@ The locales folder contains a JSON file for each language you support.
 
 
 
-
+--- The provided code initializes the i18n library and loads translations for different languages in a React application
 ```js
 
 import i18n from 'i18next';
