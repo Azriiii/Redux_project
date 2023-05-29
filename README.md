@@ -23,8 +23,7 @@ The locales folder contains a JSON file for each language you support.
     │		├── cn-CN.json
     │		├── de-DE.json
     └── index.tsx
- 	...
----
+
 
 
 
