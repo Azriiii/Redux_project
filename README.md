@@ -16,7 +16,7 @@ The locales folder contains a JSON file for each language you support.
  The provided code initializes the i18n library and loads translations for different languages in a React application
 ```js
 
-// Import required dependencies
+// import required dependencies
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
@@ -39,11 +39,11 @@ i18n
       fr: { translations: frLocales }, 
       cn: { translations: cnLocales } 
     },
-    lng: localStorage.getItem('i18nextLng') || 'en', // set initial language based on stored preference or default to English
+    lng: localStorage.getItem('i18nextLng') || 'en', // set initial language based on stored preference or default to english
     fallbackLng: 'en', // fallback language if translation is not available
-    debug: false, // Disable debug mode
-    ns: ['translations'], // Namespace for translations
-    defaultNS: 'translations', // Default namespace for translations
+    debug: false, // disable debug mode
+    ns: ['translations'], // namespace for translations
+    defaultNS: 'translations', // default namespace for translations
     interpolation: {
       escapeValue: false // disable escaping of HTML entities in translated text
     }
