@@ -1,8 +1,8 @@
 ### A Guide to i18n in React.js
 
----
+
 React i18n is a handy tool for translating and localizing React applications. It simplifies the process of making your app accessible to users from different languages and cultures. With React i18n, managing translations becomes effortless. You can extract translatable text, organize it in a translation file, and seamlessly switch between languages. 
----
+
 ### Getting Started with React i18n: Installation Guide:
 
 `npm install react-i18next i18next --save
