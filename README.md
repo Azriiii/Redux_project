@@ -1,8 +1,7 @@
 ---
 ### A Guide to i18n in React.js
 
-
-React i18n is a handy tool for translating and localizing React applications. It simplifies the process of making your app accessible to users from different languages and cultures. With React i18n, managing translations becomes effortless. You can extract translatable text, organize it in a translation file, and seamlessly switch between languages. 
+Due to a large client base and the need for multi-language support, we have decided to implement React i18n with a decentralized approach using a JSON file for storing all the translated text. This allows for efficient management and easy updates of translations, ensuring a seamless and accessible experience for users from different regions. With React i18n, managing translations becomes effortless. You can extract translatable text, organize it in a translation file, and seamlessly switch between languages. 
 
 ### Getting Started with React i18n: Installation Guide:
 
@@ -17,38 +16,41 @@ The locales folder contains a JSON file for each language you support.
  The provided code initializes the i18n library and loads translations for different languages in a React application
 ```js
 
+// Import required dependencies
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
+
+// Import JSON files containing translations for different languages
 import deLocales from './de.json';
 import enLocales from './en.json';
 import frLocales from './fr.json';
 import cnLocales from './cn.json';
 
-
-
+// Initialize i18n with configuration options
 i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
+  .use(LanguageDetector) // Use language detector to automatically detect user's language
+  .use(initReactI18next) // Initialize i18next for React components
   .init({
     resources: {
-      en: { translations: enLocales },
-      de: { translations: deLocales },
-      fr: { translations: frLocales },
-      cn: { translations: cnLocales }
-
+      // Define language-specific translations using JSON files
+      en: { translations: enLocales }, // English translations
+      de: { translations: deLocales }, // German translations
+      fr: { translations: frLocales }, // French translations
+      cn: { translations: cnLocales }  // Chinese translations
     },
-    lng: localStorage.getItem('i18nextLng') || 'en',
-    fallbackLng: 'en',
-    debug: false,
-    ns: ['translations'],
-    defaultNS: 'translations',
+    lng: localStorage.getItem('i18nextLng') || 'en', // Set initial language based on stored preference or default to English
+    fallbackLng: 'en', // Fallback language if translation is not available
+    debug: false, // Disable debug mode
+    ns: ['translations'], // Namespace for translations
+    defaultNS: 'translations', // Default namespace for translations
     interpolation: {
-      escapeValue: false
+      escapeValue: false // Disable escaping of HTML entities in translated text
     }
   });
 
-export default i18n;
+export default i18n; // Export the initialized i18n object for use in the application
+
 
 ```
 
@@ -57,51 +59,19 @@ export default i18n;
 
 To effectively initialize react-i18next, import that config file in your app entry point:
 ```js
-import './utils/highlight';
-import 'simplebar/src/simplebar.css';
-import 'react-image-lightbox/style.css';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
-import 'react-lazy-load-image-component/src/effects/black-and-white.css';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
-import { createRoot } from 'react-dom/client';
-import { HelmetProvider } from 'react-helmet-async';
-import { Provider as ReduxProvider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import { PersistGate } from 'redux-persist/lib/integration/react';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
 
-import { persistor, store } from './redux/store';
-import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
-import { SettingsProvider } from './contexts/SettingsContext';
-import { AuthProvider } from './contexts/JWTContext';
-import './locales/i18n';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-const container = document.getElementById('root');
-const root = createRoot(container);
+import './i18n/config'
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
 root.render(
-  <AuthProvider>
-    <HelmetProvider>
-      <ReduxProvider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <SettingsProvider>
-            <CollapseDrawerProvider>
-              {/* to be removed */}
-              <BrowserRouter>
-                <App />
-              </BrowserRouter>
-            </CollapseDrawerProvider>
-          </SettingsProvider>
-        </PersistGate>
-      </ReduxProvider>
-    </HelmetProvider>
-  </AuthProvider>
-);
-serviceWorkerRegistration.unregister();
-reportWebVitals();
-
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
 ```
 
 
