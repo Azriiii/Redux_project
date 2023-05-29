@@ -85,7 +85,7 @@ These JSON files include the translations for the different sections, sub-sectio
       "goHome": "Zur Startseite"
     }
 	}
-```
+
 ---
 ![folder](https://github.com/Azriiii/Redux_project/assets/47857678/646c0a8f-62b3-4dbe-bef4-1389fb548a57)
 
@@ -137,5 +137,5 @@ Quick demo :
 ![de](https://github.com/Azriiii/Redux_project/assets/47857678/a02ba2f0-7318-4bcd-9a5e-3cbc0b0b9754)
 
 
-
+---
 ### Please be aware that depending on specific needs and context, some modifications may be required in the translations. Additionally, it is important to note that Mandarin Chinese is the commonly used language for Chinese translations.
