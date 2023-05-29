@@ -100,6 +100,7 @@ The useTranslation hook is the main one you can use to replace hardcoded text wi
 
 ```js
 
+
 import Page from '../components/Page';
 import useLocales from '../hooks/useLocales';
 
