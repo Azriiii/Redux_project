@@ -5,7 +5,7 @@ React i18n is a handy tool for translating and localizing React applications. It
 
 ### Getting Started with React i18n: Installation Guide:
 
-`npm install react-i18next i18next --save
+`npm install react-i18next i18next --save`
 
 
 
@@ -26,7 +26,7 @@ The locales folder contains a JSON file for each language you support.
 
 
 
---- The provided code initializes the i18n library and loads translations for different languages in a React application
+ The provided code initializes the i18n library and loads translations for different languages in a React application
 ```js
 
 import i18n from 'i18next';
