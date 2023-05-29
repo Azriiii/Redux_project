@@ -156,7 +156,8 @@ reportWebVitals();
       "goHome": "Zur Startseite"
     }
 	}
-```JSON
+```
+
 
 
 react-i18next exposes hooks & components in order to use your translations.
