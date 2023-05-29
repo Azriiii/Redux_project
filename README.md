@@ -13,19 +13,6 @@ React i18n is a handy tool for translating and localizing React applications. It
 The locales folder contains a JSON file for each language you support. 
 
 ### Configuration:
-.
-└── src
-    ├── App.tsx
-    ├── i18n
-    │   ├── config.ts
-    │   └── locales
-    │       ├── en-Us.json
-    │       ├── fr-FR.json
-    │       ├── cn-CN.json
-    │       └── de-DE.json
-    └── index.tsx
-
-
 
  The provided code initializes the i18n library and loads translations for different languages in a React application
 ```js
