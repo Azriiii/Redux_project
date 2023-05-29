@@ -114,31 +114,30 @@ const RootStyle = styled('div')(({ theme }) => ({
   paddingBottom: theme.spacing(10),
 }));
 
-
 export default function Page404() {
-  const { translate } = useLocales();
+  const { translate } = useLocales(); // use the useLocales hook to access the translation function
 
   return (
-    <Page title={translate('navigation.error.pageNotFound')
-    } sx={{ height: 1 }}>
+    <Page title={translate('navigation.error.pageNotFound')}>
       <RootStyle>
         <Container component={MotionContainer}>
           <Box sx={{ maxWidth: 480, margin: 'auto', textAlign: 'center' }}>
             <m.div variants={varBounce().in}>
               <Typography variant="h3" paragraph>
-                {translate('navigation.error.pageNotFound')
-                }              </Typography>
+                {translate('navigation.error.pageNotFound')}
+              </Typography>
             </m.div>
 
             <Button to="/" size="large" variant="contained" component={RouterLink}>
-              {translate('navigation.error.goHome')
-              }            </Button>
+              {translate('navigation.error.goHome')}
+            </Button>
           </Box>
         </Container>
       </RootStyle>
     </Page>
   );
 }
+
 ```
 
 Quick demo : 
